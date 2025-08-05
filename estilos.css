@@ -785,7 +785,6 @@ footer {
 .discount-badge {
   animation: pulse 2s infinite;
 }
-
 /* Smooth scroll para los enlaces de navegación */
 html {
   scroll-behavior: smooth;
