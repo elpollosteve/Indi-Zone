@@ -1,0 +1,1 @@
+IndiZone es una plataforma web dedicada a la promoción y venta de videojuegos independientes. Su enfoque está en dar visibilidad a pequeños desarrolladores y estudios emergentes, conectándolos directamente con jugadores que buscan experiencias únicas, creativas y originales.
