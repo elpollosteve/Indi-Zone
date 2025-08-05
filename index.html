@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎮 Indi Zone 🎮</title>
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+    <!-- Contenedor principal -->
+    <div class="container">
+      <!-- Navegador principal con menú hamburguesa -->
+      <nav class="navegador__principal">
+        <div class="nav-container">
+          <img
+            src="imagen/IndiZonePortada.jpeg"
+            alt="logo__principal"
+            class="logo"
+          />
+
+          <!-- Input checkbox para el menú hamburguesa (solo móvil/tableta) -->
+          <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+
+          <!-- Botón hamburguesa -->
+          <label for="menu-toggle" class="hamburger">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </label>
+
+          <!-- Menú de navegación -->
+          <ul class="nav-menu">
+            <li><a href="#destacados">Destacados</a></li>
+            <li><a href="#generos">Géneros</a></li>
+            <li><a href="#desarrolladores">Desarrolladores</a></li>
+            <li><a href="#nuevos">Nuevos</a></li>
+            <li><a href="#ofertas">Ofertas</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Header -->
+      <header>
+        <h1>Juegos Indie</h1>
+        <p>Descubre los mejores juegos independientes</p>
+      </header>
+
+      <!-- Contenido principal -->
+      <main>
+        <!-- Sección de juegos destacados -->
+        <section id="destacados">
+          <h2>Juegos Destacados</h2>
+          <div class="games-grid">
+            <div class="game-card">
+              <div class="game-image">
+                <a
+                  href="https://store.steampowered.com/app/504230/Celeste/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="imagen/Celeste.jpg" alt="Celeste"/>
+                </a>
+              </div>
+              <div class="game-info">
+                <label>Título:</label>
+                <h3>Celeste</h3>
+                <label>Descripción:</label>
+                <p>
+                  Un <strong>platformer</strong> desafiante sobre superar
+                  obstáculos internos y externos.
+                  <span>Nota: 9.5/10</span>
+                </p>
+                <label>Precio:</label>
+                <p><strong>$19.99</strong></p>
+              </div>
+            </div>
+            <div class="game-card">
+              <div class="game-image">
+                <a
+                  href="https://store.steampowered.com/app/367520/Hollow_Knight/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="imagen/HOLLOW KNIGHT.jpeg" alt="Hollow Knight" />
+                </a>
+              </div>
+              <div class="game-info">
+                <label>Título:</label>
+                <h3>Hollow Knight</h3>
+                <label>Descripción:</label>
+                <p>
+                  Un <strong>metroidvania</strong> atmosférico con combate
+                  preciso y mundo interconectado.
+                  <span>Nota: 9.8/10</span>
+                </p>
+                <label>Precio:</label>
+                <p><strong>$14.99</strong></p>
+              </div>
+            </div>
+            <div class="game-card">
+              <div class="game-image">
+                <a
+                  href="https://store.steampowered.com/app/413150/Stardew_Valley/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="imagen/STARBEW VALLEY.jpeg" alt="Stardew Valley" />
+                </a>
+              </div>
+              <div class="game-info">
+                <label>Título:</label>
+                <h3>Stardew Valley</h3>
+                <label>Descripción:</label>
+                <p>
+                  Un <strong>simulador de granja</strong> relajante con
+                  elementos RPG y vida social.
+                  <span>Nota: 9.7/10</span>
+                </p>
+                <label>Precio:</label>
+                <p><strong>$13.99</strong></p>
+              </div>
+            </div>
+            <div class="game-card">
+              <div class="game-image">
+                <a
+                  href="https://store.steampowered.com/app/1145360/Hades/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="imagen/HADES.jpeg" alt="Hades" />
+                </a>
+              </div>
+              <div class="game-info">
+                <label>Título:</label>
+                <h3>Hades</h3>
+                <label>Descripción:</label>
+                <p>
+                  Un <strong>roguelike</strong> con narrativa excepcional y
+                  combate fluido.
+                  <span>Nota: 9.6/10</span>
+                </p>
+                <label>Precio:</label>
+                <p><strong>$24.99</strong></p>
+              </div>
+            </div>
+            <div class="game-card">
+              <div class="game-image">
+                <a
+                  href="https://store.steampowered.com/app/1055540/A_Short_Hike/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="imagen/SHIRT HIKE.jpeg" alt="A Short Hike" />
+                </a>
+              </div>
+              <div class="game-info">
+                <label>Título:</label>
+                <h3>A Short Hike</h3>
+                <label>Descripción:</label>
+                <p>
+                  Una <strong>aventura</strong> corta y relajante sobre
+                  exploración y descubrimiento.
+                  <span>Nota: 9.2/10</span>
+                </p>
+                <label>Precio:</label>
+                <p><strong>$7.99</strong></p>
+              </div>
+            </div>
+            <div class="game-card">
+              <div class="game-image">
+                <a
+                  href="https://store.steampowered.com/app/261570/Ori_and_the_Blind_Forest/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="imagen/ORI.jpeg" alt="Ori and the Blind Forest" />
+                </a>
+              </div>
+              <div class="game-info">
+                <label>Título:</label>
+                <h3>Ori and the Blind Forest</h3>
+                <label>Descripción:</label>
+                <p>
+                  Un <strong>metroidvania</strong> artístico con mecánicas de
+                  movimiento fluidas.
+                  <span>Nota: 9.4/10</span>
+                </p>
+                <label>Precio:</label>
+                <p><strong>$19.99</strong></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sección de géneros -->
+        <section id="generos">
+          <h2>Géneros Populares</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Género</th>
+                <th>Juegos</th>
+                <th>Precio Promedio</th>
+                <th>Popularidad</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Metroidvania</strong></td>
+                <td>127</td>
+                <td>$16.99</td>
+                <td><span>⭐⭐⭐⭐⭐</span></td>
+              </tr>
+              <tr>
+                <td><strong>Roguelike</strong></td>
+                <td>89</td>
+                <td>$12.99</td>
+                <td><span>⭐⭐⭐⭐</span></td>
+              </tr>
+              <tr>
+                <td><strong>Platformer</strong></td>
+                <td>156</td>
+                <td>$14.99</td>
+                <td><span>⭐⭐⭐⭐⭐</span></td>
+              </tr>
+              <tr>
+                <td><strong>Puzzle</strong></td>
+                <td>203</td>
+                <td>$9.99</td>
+                <td><span>⭐⭐⭐</span></td>
+              </tr>
+              <tr>
+                <td><strong>Simulación</strong></td>
+                <td>78</td>
+                <td>$18.99</td>
+                <td><span>⭐⭐⭐⭐</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Sección de desarrolladores -->
+        <section id="desarrolladores">
+          <h2>Desarrolladores Destacados</h2>
+          <p>
+            Conoce a los <strong>estudios independientes</strong> que están
+            revolucionando la industria:
+          </p>
+          <ul>
+            <li>
+              <strong>Team Cherry</strong> - Creadores de
+              <span>Hollow Knight</span>
+            </li>
+            <li>
+              <strong>Maddy Makes Games</strong> - Desarrolladores de
+              <span>Celeste</span>
+            </li>
+            <li>
+              <strong>ConcernedApe</strong> - Creador de
+              <span>Stardew Valley</span>
+            </li>
+            <li>
+              <strong>Supergiant Games</strong> - Estudio detrás de
+              <span>Hades</span>
+            </li>
+            <li>
+              <strong>Moon Studios</strong> - Desarrolladores de
+              <span>Ori</span>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Sección de nuevos lanzamientos -->
+        <section id="nuevos">
+          <h2>Próximos Lanzamientos</h2>
+          <p>
+            Mantente al día con los <strong>últimos juegos indie</strong> que
+            están por llegar:
+          </p>
+          <ol>
+            <li><strong>Silksong</strong> - <span>Próximamente 2025</span></li>
+            <li><strong>Pizza Tower</strong> - <span>Enero 2025</span></li>
+            <li><strong>Cocoon</strong> - <span>Marzo 2025</span></li>
+            <li><strong>Sea of Stars</strong> - <span>Abril 2025</span></li>
+          </ol>
+        </section>
+
+        <!-- Sección de ofertas -->
+        <section id="ofertas">
+          <h2>Ofertas Especiales</h2>
+          <p>
+            ¡No te pierdas estas <strong>ofertas limitadas</strong> en juegos
+            indie populares!
+          </p>
+          <div class="games-grid">
+            <div class="offer-card">
+              <div class="discount-badge">-75% OFF</div>
+              <div class="game-image">
+                <a
+                  href="https://store.steampowered.com/app/460950/Katana_ZERO/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="imagen/katana-zero.webp" alt="Katana Zero" />
+                </a>
+              </div>
+              <div class="game-info">
+                <label>Título:</label>
+                <h3>Katana ZERO</h3>
+                <label>Descripción:</label>
+                <p>
+                  Un <strong>juego de plataformas de acción</strong> estilo
+                  neo-noir con mecánicas de manipulación del tiempo.
+                  <span>Termina en 3 días</span>
+                </p>
+                <label>Precio:</label>
+                <p>
+                  <span class="original-price">$14.99</span>
+                  <span class="sale-price">$3.74</span>
+                </p>
+              </div>
+            </div>
+            <div class="offer-card">
+              <div class="discount-badge">-60% OFF</div>
+              <div class="game-image">
+                <a
+                  href="https://store.steampowered.com/app/268910/Cuphead/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="imagen/CUPHEAD.webp" alt="Cuphead" />
+                </a>
+              </div>
+              <div class="game-info">
+                <label>Título:</label>
+                <h3>Cuphead</h3>
+                <label>Descripción:</label>
+                <p>
+                  Un <strong>run and gun</strong> con animación estilo años 30.
+                  <span>Termina en 5 días</span>
+                </p>
+                <label>Precio:</label>
+                <p>
+                  <span class="original-price">$19.99</span>
+                  <span class="sale-price">$7.99</span>
+                </p>
+              </div>
+            </div>
+            <div class="offer-card">
+              <div class="discount-badge">-50% OFF</div>
+              <div class="game-image">
+                <a
+                  href="https://store.steampowered.com/app/683320/GRIS/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="imagen/GRISS.webp" alt="Gris" />
+                </a>
+              </div>
+              <div class="game-info">
+                <label>Título:</label>
+                <h3>Gris</h3>
+                <label>Descripción:</label>
+                <p>
+                  Una <strong>aventura artística</strong> sobre el duelo y la
+                  sanación emocional.
+                  <span>Termina en 7 días</span>
+                </p>
+                <label>Precio:</label>
+                <p>
+                  <span class="original-price">$16.99</span>
+                  <span class="sale-price">$8.49</span>
+                </p>
+              </div>
+            </div>
+            <div class="offer-card">
+              <div class="discount-badge">-40% OFF</div>
+              <div class="game-image">
+                <a
+                  href="https://store.steampowered.com/app/588650/Dead_Cells/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="imagen/DEAD CELL RISE GIAN.webp" alt="Dead Cells" />
+                </a>
+              </div>
+              <div class="game-info">
+                <label>Título:</label>
+                <h3>Dead Cells</h3>
+                <label>Descripción:</label>
+                <p>
+                  Un <strong>metroidvania roguelike</strong> con combate
+                  visceral.
+                  <span>Termina en 2 días</span>
+                </p>
+                <label>Precio:</label>
+                <p>
+                  <span class="original-price">$24.99</span>
+                  <span class="sale-price">$14.99</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Pie de página -->
+      <footer>
+        <div class="footer-content">
+          <div class="footer-links">
+            <div>
+              <h4>Explorar</h4>
+              <ul>
+                <li><a href="#destacados">Juegos Destacados</a></li>
+                <li><a href="#generos">Géneros</a></li>
+                <li><a href="#ofertas">Ofertas</a></li>
+                <li><a href="#nuevos">Nuevos Lanzamientos</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Comunidad</h4>
+              <ul>
+                <li><a href="#desarrolladores">Desarrolladores</a></li>
+                <li><a href="#">Foro</a></li>
+                <li><a href="#">Reseñas</a></li>
+                <li><a href="#">Blog</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Soporte</h4>
+              <ul>
+                <li><a href="#">Ayuda</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Reportar Error</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Legal</h4>
+              <ul>
+                <li><a href="#">Términos de Uso</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+                <li><a href="#">Cookies</a></li>
+                <li><a href="#">Licencias</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="social-section">
+            <p><strong>Síguenos en:</strong></p>
+            <div class="social-links">
+              <a
+                href="https://x.com/elpollosteve?t=vPspCjjI1roVI2boS67X-Q&s=09"
+                target="_blank"
+                rel="noopener noreferrer"
+                >🐦 X</a
+              >
+              <a
+                href="https://www.facebook.com/gio.gamerretiz"
+                target="_blank"
+                rel="noopener noreferrer"
+                >📘 Facebook</a
+              >
+              <a
+                href="https://www.facebook.com/share/1C3fw5382J/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >📘 Facebook 2</a
+              >
+              <a
+                href="https://www.instagram.com/gio.18gr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >📷 Instagram</a
+              >
+              <a
+                href="https://www.instagram.com/elpollosteve/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >📷 Instagram 2</a
+              >
+              <a
+                href="https://discord.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >🎮 Discord</a
+              >
+            </div>
+            <p>
+              &copy; 2025 <strong>Juegos Indie</strong>. Todos los derechos
+              reservados.
+            </p>
+            <p>
+              <span>Apoyando a desarrolladores independientes desde 2025</span>
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
