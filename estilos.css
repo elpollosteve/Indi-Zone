@@ -42,6 +42,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: var(--gradiente-fondo);
@@ -57,9 +61,7 @@ body {
   padding: 0 1rem;
 }
 
-/* ===============================
-   NAVEGACIÓN CON MENÚ HAMBURGUESA
-   =============================== */
+/* Navegación con menú hamburguesa */
 
 .navegador__principal {
   background: var(--fondo-tarjeta);
@@ -69,95 +71,107 @@ body {
   top: 0;
   z-index: 9999;
   border-bottom: 2px solid var(--color-primario);
-}
 
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 
-.logo {
-  height: 60px;
-  border-radius: 8px;
-  transition: transform var(--transicion-media);
-}
+    .logo {
+      height: 60px;
+      border-radius: 8px;
+      transition: transform var(--transicion-media);
 
-.logo:hover {
-  transform: scale(1.05);
-}
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
 
-/* Input checkbox oculto para el menú hamburguesa */
-.menu-toggle {
-  display: none;
-}
+    /* Input checkbox oculto para el menú hamburguesa */
+    .menu-toggle {
+      display: none;
 
-/* Botón hamburguesa (solo visible en móvil y tableta) */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  padding: 0.5rem;
-  background: var(--fondo-secundario);
-  border-radius: 8px;
-  transition: all var(--transicion-media);
-  z-index: 9999;
-  position: relative;
-}
+      /* Animación del hamburger cuando está activo */
+      &:checked {
+        + .hamburger {
+          .hamburger-line {
+            &:nth-child(1) {
+              transform: rotate(45deg) translate(6px, 6px);
+            }
+            &:nth-child(2) {
+              opacity: 0;
+            }
+            &:nth-child(3) {
+              transform: rotate(-45deg) translate(6px, -6px);
+            }
+          }
+        }
 
-.hamburger:hover {
-  background: var(--color-primario);
-}
+        ~ .nav-menu {
+          left: 0;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
 
-.hamburger-line {
-  width: 25px;
-  height: 3px;
-  background: var(--texto-principal);
-  margin: 3px 0;
-  transition: all var(--transicion-media);
-  border-radius: 2px;
-}
+    /* Botón hamburguesa (solo visible en móvil y tableta) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 0.5rem;
+      background: var(--fondo-secundario);
+      border-radius: 8px;
+      transition: all var(--transicion-media);
+      z-index: 9999;
+      position: relative;
 
-/* Animación del hamburger cuando está activo */
-.menu-toggle:checked + .hamburger .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-}
+      &:hover {
+        background: var(--color-primario);
+      }
 
-.menu-toggle:checked + .hamburger .hamburger-line:nth-child(2) {
-  opacity: 0;
-}
+      .hamburger-line {
+        width: 25px;
+        height: 3px;
+        background: var(--texto-principal);
+        margin: 3px 0;
+        transition: all var(--transicion-media);
+        border-radius: 2px;
+      }
+    }
 
-.menu-toggle:checked + .hamburger .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
+    /* Menú de navegación */
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+      margin: 0;
 
-/* Menú de navegación */
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 1rem;
-  margin: 0;
-}
+      li {
+        a {
+          display: block;
+          padding: 0.8rem 1.5rem;
+          background: var(--fondo-secundario);
+          color: var(--texto-principal);
+          text-decoration: none;
+          border-radius: 25px;
+          border: 2px solid transparent;
+          transition: all var(--transicion-media);
+          font-weight: 500;
 
-.nav-menu li a {
-  display: block;
-  padding: 0.8rem 1.5rem;
-  background: var(--fondo-secundario);
-  color: var(--texto-principal);
-  text-decoration: none;
-  border-radius: 25px;
-  border: 2px solid transparent;
-  transition: all var(--transicion-media);
-  font-weight: 500;
-}
-
-.nav-menu li a:hover {
-  background: var(--gradiente-acento);
-  transform: translateY(-2px);
-  box-shadow: var(--sombra-media);
-  border-color: var(--color-acento);
+          &:hover {
+            background: var(--gradiente-acento);
+            transform: translateY(-2px);
+            box-shadow: var(--sombra-media);
+            border-color: var(--color-acento);
+          }
+        }
+      }
+    }
+  }
 }
 
 /* Header */
@@ -168,218 +182,236 @@ header {
   margin: 2rem 0;
   border-radius: 16px;
   box-shadow: var(--sombra-media);
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
 }
 
-header h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
+/* Contenido principal */
+main {
+  > section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: var(--fondo-tarjeta);
+    border-radius: 16px;
+    box-shadow: var(--sombra-suave);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
 
-header p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
+  h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    background: var(--gradiente-principal);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
-/* Secciones principales */
-main > section {
-  margin: 3rem 0;
-  padding: 2rem;
-  background: var(--fondo-tarjeta);
-  border-radius: 16px;
-  box-shadow: var(--sombra-suave);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
+  /* Grid de juegos */
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
 
-main h2 {
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  background: var(--gradiente-principal);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+  /* Tarjetas de juegos y ofertas */
+  .game-card,
+  .offer-card {
+    background: var(--fondo-secundario);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
+    transition: all var(--transicion-media);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    animation: fadeInUp 0.6s ease forwards;
 
-/* Grid de juegos */
-.games-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--sombra-fuerte);
+      border-color: var(--color-primario);
 
-/* Tarjetas de juegos */
-.game-card, .offer-card {
-  background: var(--fondo-secundario);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: var(--sombra-suave);
-  transition: all var(--transicion-media);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative;
-}
+      .game-image img {
+        transform: scale(1.1);
+      }
+    }
 
-.game-card:hover, .offer-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--sombra-fuerte);
-  border-color: var(--color-primario);
-}
+    /* Retraso progresivo para las tarjetas */
+    &:nth-child(1) { animation-delay: 0.1s; }
+    &:nth-child(2) { animation-delay: 0.2s; }
+    &:nth-child(3) { animation-delay: 0.3s; }
+    &:nth-child(4) { animation-delay: 0.4s; }
+    &:nth-child(5) { animation-delay: 0.5s; }
+    &:nth-child(6) { animation-delay: 0.6s; }
 
-.game-image {
-  height: 200px;
-  overflow: hidden;
-  position: relative;
-}
+    .game-image {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
 
-.game-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transicion-lenta);
-}
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--transicion-lenta);
+      }
 
-/* Efecto hover para imágenes clickeables */
-.game-image a img {
-  transition: transform 0.3s ease;
-}
+      /* Efecto hover para imágenes clickeables */
+      a {
+        img {
+          transition: transform 0.3s ease;
+        }
 
-.game-image a:hover img {
-  transform: scale(1.05);
-}
+        &:hover img {
+          transform: scale(1.05);
+        }
+      }
+    }
 
-.game-card:hover .game-image img {
-  transform: scale(1.1);
-}
+    .game-info {
+      padding: 1.5rem;
 
-.game-info {
-  padding: 1.5rem;
-}
+      label {
+        color: var(--color-acento);
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
 
-.game-info label {
-  color: var(--color-acento);
-  font-weight: 600;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
+      h3 {
+        margin: 0.5rem 0;
+        font-size: 1.4rem;
+        color: var(--texto-principal);
+      }
 
-.game-info h3 {
-  margin: 0.5rem 0;
-  font-size: 1.4rem;
-  color: var(--texto-principal);
-}
+      p {
+        margin: 0.5rem 0;
+        color: var(--texto-secundario);
+        line-height: 1.5;
+      }
 
-.game-info p {
-  margin: 0.5rem 0;
-  color: var(--texto-secundario);
-  line-height: 1.5;
-}
+      span {
+        display: inline-block;
+        background: var(--gradiente-acento);
+        color: white;
+        padding: 0.2rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+        font-weight: 600;
+      }
 
-.game-info span {
-  display: inline-block;
-  background: var(--gradiente-acento);
-  color: white;
-  padding: 0.2rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  margin-top: 0.5rem;
-  font-weight: 600;
-}
+      strong {
+        color: var(--color-exito);
+        font-size: 1.2rem;
+      }
+    }
 
-.game-info strong {
-  color: var(--color-exito);
-  font-size: 1.2rem;
-}
+    /* Badge de descuento para ofertas */
+    .discount-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--gradiente-principal);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      z-index: 5;
+      box-shadow: var(--sombra-media);
+      animation: pulse 2s infinite;
+    }
+  }
 
-/* Tarjetas de ofertas */
-.discount-badge {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: var(--gradiente-principal);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  font-weight: bold;
-  font-size: 0.9rem;
-  z-index: 5;
-  box-shadow: var(--sombra-media);
-}
+  /* Estilos específicos para precios */
+  .original-price {
+    text-decoration: line-through;
+    color: var(--texto-muted) !important;
+    margin-right: 0.5rem;
+  }
 
-.original-price {
-  text-decoration: line-through;
-  color: var(--texto-muted) !important;
-  margin-right: 0.5rem;
-}
+  .sale-price {
+    color: var(--color-exito) !important;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
 
-.sale-price {
-  color: var(--color-exito) !important;
-  font-weight: bold;
-  font-size: 1.3rem;
-}
+  /* Tabla de géneros */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    background: var(--fondo-secundario);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--sombra-suave);
 
-/* Tabla de géneros */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1.5rem;
-  background: var(--fondo-secundario);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: var(--sombra-suave);
-}
+    th,
+    td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-th, td {
-  padding: 1rem;
-  text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
+    th {
+      background: var(--gradiente-principal);
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
 
-th {
-  background: var(--gradiente-principal);
-  color: white;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
+    td {
+      color: var(--texto-secundario);
+      transition: background-color var(--transicion-rapida);
 
-td {
-  color: var(--texto-secundario);
-  transition: background-color var(--transicion-rapida);
-}
+      strong {
+        color: var(--color-primario);
+      }
 
-tr:hover td {
-  background: var(--fondo-hover);
-  color: var(--texto-principal);
-}
+      span {
+        color: var(--color-advertencia);
+      }
+    }
 
-td strong {
-  color: var(--color-primario);
-}
+    tr:hover td {
+      background: var(--fondo-hover);
+      color: var(--texto-principal);
+    }
+  }
 
-td span {
-  color: var(--color-advertencia);
-}
+  /* Listas */
+  ul,
+  ol {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
 
-/* Listas */
-ul, ol {
-  margin: 1.5rem 0;
-  padding-left: 2rem;
-}
+    li {
+      margin: 0.8rem 0;
+      color: var(--texto-secundario);
 
-li {
-  margin: 0.8rem 0;
-  color: var(--texto-secundario);
-}
+      strong {
+        color: var(--color-primario);
+      }
 
-li strong {
-  color: var(--color-primario);
-}
-
-li span {
-  color: var(--color-acento);
-  font-style: italic;
+      span {
+        color: var(--color-acento);
+        font-style: italic;
+      }
+    }
+  }
 }
 
 /* Footer */
@@ -388,368 +420,85 @@ footer {
   margin-top: 4rem;
   padding: 3rem 0 1rem;
   border-top: 2px solid var(--color-primario);
-}
 
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 
-.footer-links {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
-}
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
 
-.footer-links h4 {
-  color: var(--color-primario);
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
-}
+      h4 {
+        color: var(--color-primario);
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
 
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-}
+      ul {
+        list-style: none;
+        padding: 0;
 
-.footer-links li {
-  margin: 0.5rem 0;
-}
+        li {
+          margin: 0.5rem 0;
 
-.footer-links a {
-  color: var(--texto-secundario);
-  text-decoration: none;
-  transition: color var(--transicion-rapida);
-}
+          a {
+            color: var(--texto-secundario);
+            text-decoration: none;
+            transition: color var(--transicion-rapida);
 
-.footer-links a:hover {
-  color: var(--color-acento);
-}
+            &:hover {
+              color: var(--color-acento);
+            }
+          }
+        }
+      }
+    }
 
-.social-section {
-  text-align: center;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
+    .social-section {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
 
-.social-links {
-  margin: 1rem 0;
-}
+      .social-links {
+        margin: 1rem 0;
 
-.social-links a {
-  color: var(--texto-secundario);
-  text-decoration: none;
-  margin: 0 0.5rem;
-  transition: all var(--transicion-rapida);
-  display: inline-block;
-}
+        a {
+          color: var(--texto-secundario);
+          text-decoration: none;
+          margin: 0 0.5rem;
+          transition: all var(--transicion-rapida);
+          display: inline-block;
 
-.social-links a:hover {
-  color: var(--color-acento);
-  transform: scale(1.2);
-}
+          &:hover {
+            color: var(--color-acento);
+            transform: scale(1.2);
+          }
+        }
+      }
 
-.social-section p {
-  margin: 0.5rem 0;
-  color: var(--texto-muted);
-}
+      p {
+        margin: 0.5rem 0;
+        color: var(--texto-muted);
+      }
 
-.social-section span {
-  margin: 0 0.5rem;
-  transition: transform var(--transicion-rapida);
-  display: inline-block;
-}
+      span {
+        margin: 0 0.5rem;
+        transition: transform var(--transicion-rapida);
+        display: inline-block;
 
-.social-section span:hover {
-  transform: scale(1.2);
-}
-
-/* ===============================
-   RESPONSIVE DESIGN
-   =============================== */
-
-/* === MÓVIL (hasta 768px) === */
-@media (max-width: 768px) {
-  /* Mostrar menú hamburguesa en móvil */
-  .hamburger {
-    display: flex;
-  }
-  
-  /* Ocultar menú por defecto en móvil */
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100vh;
-    background: var(--fondo-tarjeta);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: var(--sombra-media);
-    transform: translateX(0);
-    opacity: 0;
-    visibility: hidden;
-    transition: all var(--transicion-media);
-    z-index: 9998;
-  }
-  
-  /* Mostrar menú cuando el checkbox está marcado */
-  .menu-toggle:checked ~ .nav-menu {
-    left: 0;
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  .nav-menu li {
-    margin: 1.5rem 0;
-  }
-  
-  .nav-menu li a {
-    font-size: 1.2rem;
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    min-width: 200px;
-    text-align: center;
-  }
-  
-  /* Ajustes generales para móvil */
-  .container {
-    padding: 0 0.5rem;
-  }
-  
-  /* Header más compacto en móvil */
-  header {
-    padding: 2rem 1rem;
-    margin: 1rem 0;
-  }
-  
-  header h1 {
-    font-size: 2rem;
-  }
-  
-  header p {
-    font-size: 1rem;
-  }
-  
-  /* Secciones más compactas */
-  main > section {
-    margin: 2rem 0;
-    padding: 1.5rem;
-  }
-  
-  main h2 {
-    font-size: 1.8rem;
-  }
-  
-  /* Grid de una columna en móvil */
-  .games-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  /* Tarjetas más pequeñas */
-  .game-image {
-    height: 150px;
-  }
-  
-  .game-info {
-    padding: 1rem;
-  }
-  
-  .game-info h3 {
-    font-size: 1.2rem;
-  }
-  
-  /* Tabla responsive */
-  table {
-    font-size: 0.9rem;
-  }
-  
-  th, td {
-    padding: 0.8rem 0.5rem;
-  }
-  
-  /* Footer apilado */
-  .footer-links {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  /* Logo del navegador más pequeño */
-  .logo {
-    height: 45px;
-  }
-  
-  /* Ajustar enlaces sociales en móvil */
-  .social-links a {
-    display: block;
-    margin: 0.5rem 0;
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+    }
   }
 }
 
-/* === TABLETA (769px - 1024px) === */
-@media (min-width: 769px) and (max-width: 1024px) {
-  /* Mostrar menú hamburguesa en tableta también */
-  .hamburger {
-    display: flex;
-  }
-  
-  /* Menú hamburguesa para tableta */
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100vh;
-    background: var(--fondo-tarjeta);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: var(--sombra-media);
-    transform: translateX(0);
-    opacity: 0;
-    visibility: hidden;
-    transition: all var(--transicion-media);
-    z-index: 9998;
-  }
-  
-  .menu-toggle:checked ~ .nav-menu {
-    left: 0;
-    opacity: 1;
-    visibility: visible;
-  }
-  
-  .nav-menu li {
-    margin: 1.5rem 0;
-  }
-  
-  .nav-menu li a {
-    font-size: 1.2rem;
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    min-width: 200px;
-    text-align: center;
-  }
-  
-  /* Ajustes para tableta */
-  .container {
-    padding: 0 2rem;
-  }
-  
-  /* Header equilibrado para tableta */
-  header h1 {
-    font-size: 2.5rem;
-  }
-  
-  /* Grid de dos columnas en tableta */
-  .games-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  
-  /* Tarjetas de tamaño medio */
-  .game-image {
-    height: 180px;
-  }
-  
-  /* Tabla con mejor espaciado */
-  th, td {
-    padding: 0.9rem;
-  }
-  
-  /* Footer en dos columnas */
-  .footer-links {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* === DESKTOP (1025px en adelante) === */
-@media (min-width: 1025px) {
-  /* En desktop, el menú hamburguesa está oculto y el menú es horizontal */
-  .hamburger {
-    display: none;
-  }
-  
-  .nav-menu {
-    position: static;
-    flex-direction: row;
-    background: transparent;
-    box-shadow: none;
-    transform: none;
-    opacity: 1;
-    visibility: visible;
-    max-height: none;
-    overflow: visible;
-    padding: 0;
-  }
-  
-  /* Configuración completa para desktop */
-  .container {
-    max-width: 1400px;
-  }
-  
-  /* Header con tamaño completo */
-  header {
-    padding: 4rem 2rem;
-  }
-  
-  header h1 {
-    font-size: 3.5rem;
-  }
-  
-  header p {
-    font-size: 1.3rem;
-  }
-  
-  /* Grid de tres columnas en desktop */
-  .games-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-  
-  /* Navegación espaciosa */
-  .nav-menu {
-    gap: 1.5rem;
-  }
-  
-  /* Secciones con más padding */
-  main > section {
-    padding: 2.5rem;
-  }
-  
-  /* Footer en cuatro columnas */
-  .footer-links {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  
-  /* Efectos hover más pronunciados en desktop */
-  .game-card:hover, .offer-card:hover {
-    transform: translateY(-10px) scale(1.02);
-  }
-  
-  /* Tabla con espaciado generoso */
-  th, td {
-    padding: 1.2rem;
-  }
-  
-  /* Logo del navegador con hover effect */
-  .logo:hover {
-    transform: scale(1.1) rotate(2deg);
-  }
-  
-  /* Enlaces sociales en línea para desktop */
-  .social-links a {
-    display: inline-block;
-    margin: 0 0.5rem;
-  }
-}
-
-/* ===============================
-   ANIMACIONES ADICIONALES
-   =============================== */
+/* Animaciones */
 
 /* Animación de entrada para las tarjetas */
 @keyframes fadeInUp {
@@ -763,18 +512,6 @@ footer {
   }
 }
 
-.game-card, .offer-card {
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-/* Retraso progresivo para las tarjetas */
-.game-card:nth-child(1), .offer-card:nth-child(1) { animation-delay: 0.1s; }
-.game-card:nth-child(2), .offer-card:nth-child(2) { animation-delay: 0.2s; }
-.game-card:nth-child(3), .offer-card:nth-child(3) { animation-delay: 0.3s; }
-.game-card:nth-child(4), .offer-card:nth-child(4) { animation-delay: 0.4s; }
-.game-card:nth-child(5), .offer-card:nth-child(5) { animation-delay: 0.5s; }
-.game-card:nth-child(6), .offer-card:nth-child(6) { animation-delay: 0.6s; }
-
 /* Animación pulsante para el badge de descuento */
 @keyframes pulse {
   0% { transform: scale(1); }
@@ -782,10 +519,312 @@ footer {
   100% { transform: scale(1); }
 }
 
-.discount-badge {
-  animation: pulse 2s infinite;
+/* Modelos */
+/* === Móvil (hasta 768px) === */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .navegador__principal {
+    .nav-container {
+      /* Mostrar menú hamburguesa en móvil */
+      .hamburger {
+        display: flex;
+      }
+
+      .logo {
+        height: 45px;
+      }
+
+      /* Ocultar menú por defecto en móvil */
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--fondo-tarjeta);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: var(--sombra-media);
+        transform: translateX(0);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transicion-media);
+        z-index: 9998;
+
+        li {
+          margin: 1.5rem 0;
+
+          a {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            min-width: 200px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  /* Header más compacto en móvil */
+  header {
+    padding: 2rem 1rem;
+    margin: 1rem 0;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  main {
+    /* Secciones más compactas */
+    > section {
+      margin: 2rem 0;
+      padding: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+    }
+
+    /* Grid de una columna en móvil */
+    .games-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    /* Tarjetas más pequeñas */
+    .game-card,
+    .offer-card {
+      .game-image {
+        height: 150px;
+      }
+
+      .game-info {
+        padding: 1rem;
+
+        h3 {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    /* Tabla responsive */
+    table {
+      font-size: 0.9rem;
+
+      th,
+      td {
+        padding: 0.8rem 0.5rem;
+      }
+    }
+  }
+
+  footer {
+    .footer-content {
+      /* Footer apilado */
+      .footer-links {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .social-section {
+        /* Ajustar enlaces sociales en móvil */
+        .social-links a {
+          display: block;
+          margin: 0.5rem 0;
+        }
+      }
+    }
+  }
 }
-/* Smooth scroll para los enlaces de navegación */
-html {
-  scroll-behavior: smooth;
+
+/* === Tableta (769px - 1024px) === */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .navegador__principal {
+    .nav-container {
+      /* Mostrar menú hamburguesa en tableta también */
+      .hamburger {
+        display: flex;
+      }
+
+      /* Menú hamburguesa para tableta */
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--fondo-tarjeta);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        box-shadow: var(--sombra-media);
+        transform: translateX(0);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transicion-media);
+        z-index: 9998;
+
+        li {
+          margin: 1.5rem 0;
+
+          a {
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            min-width: 200px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  /* Header equilibrado para tableta */
+  header {
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+  main {
+    /* Grid de dos columnas en tableta */
+    .games-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    /* Tarjetas de tamaño medio */
+    .game-card,
+    .offer-card {
+      .game-image {
+        height: 180px;
+      }
+    }
+
+    /* Tabla con mejor espaciado */
+    table {
+      th,
+      td {
+        padding: 0.9rem;
+      }
+    }
+  }
+
+  footer {
+    .footer-content {
+      /* Footer en dos columnas */
+      .footer-links {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+/* === Desktop (1025px en adelante) === */
+@media (min-width: 1025px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  .navegador__principal {
+    .nav-container {
+      /* En desktop, el menú hamburguesa está oculto y el menú es horizontal */
+      .hamburger {
+        display: none;
+      }
+
+      .logo {
+        &:hover {
+          transform: scale(1.1) rotate(2deg);
+        }
+      }
+
+      .nav-menu {
+        position: static;
+        flex-direction: row;
+        background: transparent;
+        box-shadow: none;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        max-height: none;
+        overflow: visible;
+        padding: 0;
+        gap: 1.5rem;
+      }
+    }
+  }
+
+  /* Header con tamaño completo */
+  header {
+    padding: 4rem 2rem;
+
+    h1 {
+      font-size: 3.5rem;
+    }
+
+    p {
+      font-size: 1.3rem;
+    }
+  }
+
+  main {
+    /* Secciones con más padding */
+    > section {
+      padding: 2.5rem;
+    }
+
+    /* Grid de tres columnas en desktop */
+    .games-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    /* Efectos hover más pronunciados en desktop */
+    .game-card,
+    .offer-card {
+      &:hover {
+        transform: translateY(-10px) scale(1.02);
+      }
+    }
+
+    /* Tabla con espaciado generoso */
+    table {
+      th,
+      td {
+        padding: 1.2rem;
+      }
+    }
+  }
+
+  footer {
+    .footer-content {
+      /* Footer en cuatro columnas */
+      .footer-links {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .social-section {
+        /* Enlaces sociales en línea para desktop */
+        .social-links a {
+          display: inline-block;
+          margin: 0 0.5rem;
+        }
+      }
+    }
+  }
 }
