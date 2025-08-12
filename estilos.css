@@ -826,7 +826,7 @@ footer {
     }
   }
 
-  /* Footer en cuatro columnas */
+  /* Footer en cuatro columnas*/
   footer {
     .enlaces-pie {
       grid-template-columns: repeat(4, 1fr);
