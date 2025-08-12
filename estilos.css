@@ -832,7 +832,7 @@ footer {
       grid-template-columns: repeat(4, 1fr);
     }
 
-    /* Enlaces sociales enn línea para desktop */
+    /* Enlaces sociales en línea para desktop */
     .seccion-social .enlaces-sociales a {
       display: inline-block;
       margin: 0 0.5rem;
